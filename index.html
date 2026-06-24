@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifePhone</title>
+
+```
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+<body>
+
+<div id="phone">
+
+```
+<!-- LOCKSCREEN -->
+
+<section id="lockscreen" class="active">
+
+    <div class="lock-bg"></div>
+
+    <div class="lock-content">
+        <div id="lockTime">12:45</div>
+        <div id="lockDate">Wednesday, June 24</div>
+    </div>
+
+    <div class="swipe-up">
+        Swipe up to unlock
+    </div>
+
+</section>
+
+<!-- STATUS BAR -->
+
+<div id="statusBar">
+
+    <div id="statusTime">12:45</div>
+
+    <div id="statusIcons">
+
+        <div class="signal"></div>
+        <div class="wifi"></div>
+        <div class="battery"></div>
+
+    </div>
+
+</div>
+
+<!-- NOTIFICATION CENTER -->
+
+<div id="notificationCenter">
+
+    <div class="notification-header">
+        Notifications
+    </div>
+
+    <div id="notifications"></div>
+
+</div>
+
+<!-- HOME SCREEN -->
+
+<section id="homeScreen">
+
+    <div class="wallpaper"></div>
+
+    <div class="apps">
+
+        <button class="app" data-app="wallet">
+            Wallet
+        </button>
+
+        <button class="app" data-app="bank">
+            Bank
+        </button>
+
+        <button class="app" data-app="crypto">
+            Crypto
+        </button>
+
+        <button class="app" data-app="business">
+            Business
+        </button>
+
+        <button class="app" data-app="loans">
+            Loans
+        </button>
+
+        <button class="app" data-app="shop">
+            Shop
+        </button>
+
+        <button class="app" data-app="food">
+            Food
+        </button>
+
+        <button class="app" data-app="safari">
+            Safari
+        </button>
+
+        <button class="app" data-app="mail">
+            Mail
+        </button>
+
+        <button class="app" data-app="settings">
+            Settings
+        </button>
+
+        <button class="app" data-app="appstore">
+            App Store
+        </button>
+
+    </div>
+
+    <div id="dock">
+
+        <button class="dock-app">Phone</button>
+        <button class="dock-app">Messages</button>
+        <button class="dock-app">Camera</button>
+        <button class="dock-app">Music</button>
+
+    </div>
+
+</section>
+
+<!-- WALLET -->
+
+<section class="screen" id="wallet">
+
+    <div class="screen-header">
+        Wallet
+        <button class="closeApp">×</button>
+    </div>
+
+    <div class="wallet-card">
+
+        <div class="card-chip"></div>
+
+        <div class="card-balance">
+            $45,600,000,000
+        </div>
+
+        <div class="card-number">
+            4538 8291 4419 9382
+        </div>
+
+        <div class="card-holder">
+            LIFEPHONE USER
+        </div>
+
+    </div>
+
+    <div class="wallet-actions">
+
+        <button id="walletTransfer">
+            Transfer
+        </button>
+
+        <button id="walletPay">
+            Pay
+        </button>
+
+    </div>
+
+</section>
+
+<!-- BANK -->
+
+<section class="screen" id="bank">
+
+    <div class="screen-header">
+        Bank
+        <button class="closeApp">×</button>
+    </div>
+
+    <div class="bank-balance">
+        Balance:
+        <span id="balanceValue">
+            $45,600,000,000
+        </span>
+    </div>
+
+    <button id="sendMoney">
+        Send Money
+    </button>
+
+    <button id="receiveMoney">
+        Receive Money
+    </button>
+
+    <button id="historyButton">
+        Transactions
+    </button>
+
+</section>
+
+<!-- CRYPTO -->
+
+<section class="screen" id="crypto">
+
+    <div class="screen-header">
+        Crypto
+        <button class="closeApp">×</button>
+    </div>
+
+    <div class="coin">
+
+        <div>
+            Bitcoin
+        </div>
+
+        <div id="btcPrice">
+            $102,000
+        </div>
+
+        <button id="buyBTC">
+            Buy
+        </button>
+
+        <button id="sellBTC">
+            Sell
+        </button>
+
+    </div>
+
+    <div class="coin">
+
+        <div>
+            Ethereum
+        </div>
+
+        <div id="ethPrice">
+            $5,200
+        </div>
+
+        <button id="buyETH">
+            Buy
+        </button>
+
+        <button id="sellETH">
+            Sell
+        </button>
+
+    </div>
+
+</section>
+
+<!-- BUSINESS -->
+
+<section class="screen" id="business">
+
+    <div class="screen-header">
+        Business
+        <button class="closeApp">×</button>
+    </div>
+
+    <div class="business-list">
+
+        <button class="businessBuy">
+            Buy Restaurant
+        </button>
+
+        <button class="businessBuy">
+            Buy Factory
+        </button>
+
+        <button class="businessBuy">
+            Buy Delivery Service
+        </button>
+
+        <button class="businessBuy">
+            Buy Airline
+        </button>
+
+    </div>
+
+    <button id="collectProfit">
+        Collect Profit
+    </button>
+
+</section>
+
+<!-- LOANS -->
+
+<section class="screen" id="loans">
+
+    <div class="screen-header">
+        Loans
+        <button class="closeApp">×</button>
+    </div>
+
+    <button class="loanButton">
+        Loan $10,000
+    </button>
+
+    <button class="loanButton">
+        Loan $100,000
+    </button>
+
+    <button class="loanButton">
+        Loan $1,000,000
+    </button>
+
+    <button id="repayLoan">
+        Repay
+    </button>
+
+</section>
+
+<!-- SHOP -->
+
+<section class="screen" id="shop">
+
+    <div class="screen-header">
+        Shop
+        <button class="closeApp">×</button>
+    </div>
+
+    <div class="product">
+        Gaming PC - $3,000
+        <button class="buyProduct">
+            Buy
+        </button>
+    </div>
+
+    <div class="product">
+        Sports Car - $250,000
+        <button class="buyProduct">
+            Buy
+        </button>
+    </div>
+
+    <div class="product">
+        Penthouse - $4,000,000
+        <button class="buyProduct">
+            Buy
+        </button>
+    </div>
+
+</section>
+
+<!-- FOOD -->
+
+<section class="screen" id="food">
+
+    <div class="screen-header">
+        Food
+        <button class="closeApp">×</button>
+    </div>
+
+    <div class="food-item">
+        Burger - $12
+        <button>Order</button>
+    </div>
+
+    <div class="food-item">
+        Pizza - $18
+        <button>Order</button>
+    </div>
+
+    <div class="food-item">
+        Sushi - $40
+        <button>Order</button>
+    </div>
+
+</section>
+
+<!-- SAFARI -->
+
+<section class="screen" id="safari">
+
+    <div class="screen-header">
+        Safari
+        <button class="closeApp">×</button>
+    </div>
+
+    <input
+        id="browserAddress"
+        type="text"
+        placeholder="Search or enter website name"
+    >
+
+    <div class="favorites">
+
+        <button class="site">
+            Marketplace
+        </button>
+
+        <button class="site">
+            Luxury Cars
+        </button>
+
+        <button class="site">
+            Crypto News
+        </button>
+
+        <button class="site">
+            Food Delivery
+        </button>
+
+    </div>
+
+    <div id="browserContent"></div>
+
+</section>
+
+<!-- APP STORE -->
+
+<section class="screen" id="appstore">
+
+    <div class="screen-header">
+        App Store
+        <button class="closeApp">×</button>
+    </div>
+
+    <div class="store-app">
+
+        Marketplace Plus
+
+        <button class="downloadApp">
+            GET
+        </button>
+
+    </div>
+
+    <div class="store-app">
+
+        Delivery Express
+
+        <button class="downloadApp">
+            GET
+        </button>
+
+    </div>
+
+    <div class="store-app">
+
+        Luxury Market
+
+        <button class="downloadApp">
+            GET
+        </button>
+
+    </div>
+
+</section>
+
+<!-- SETTINGS -->
+
+<section class="screen" id="settings">
+
+    <div class="screen-header">
+        Settings
+        <button class="closeApp">×</button>
+    </div>
+
+    <div class="settingRow">
+        Airplane Mode
+    </div>
+
+    <div class="settingRow">
+        Wi-Fi
+    </div>
+
+    <div class="settingRow">
+        Bluetooth
+    </div>
+
+    <div class="settingRow">
+        Notifications
+    </div>
+
+    <div class="settingRow">
+        Privacy
+    </div>
+
+    <div class="settingRow">
+        Display
+    </div>
+
+</section>
+```
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
