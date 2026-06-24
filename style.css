@@ -1,0 +1,803 @@
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+width:100%;
+height:100%;
+overflow:hidden;
+
+```
+font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    sans-serif;
+
+background:#000;
+color:#fff;
+```
+
+}
+
+/* =========================
+PHONE
+========================= */
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+#phone{
+
+```
+position:relative;
+
+width:390px;
+height:844px;
+
+overflow:hidden;
+
+background:#000;
+
+border-radius:58px;
+
+border:10px solid #121212;
+
+box-shadow:
+    0 0 0 2px #2a2a2a,
+    0 30px 80px rgba(0,0,0,.8);
+```
+
+}
+
+/* =========================
+WALLPAPER
+========================= */
+
+.wallpaper,
+.lock-bg{
+
+```
+position:absolute;
+inset:0;
+
+background:
+    radial-gradient(
+        circle at top,
+        #2b2b2b,
+        #0b0b0b 45%,
+        #000
+    );
+
+z-index:0;
+```
+
+}
+
+/* =========================
+STATUS BAR
+========================= */
+
+#statusBar{
+
+```
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:54px;
+
+display:flex;
+
+justify-content:space-between;
+align-items:center;
+
+padding:0 26px;
+
+z-index:9000;
+
+pointer-events:none;
+```
+
+}
+
+#statusTime{
+
+```
+font-size:15px;
+font-weight:600;
+```
+
+}
+
+#statusIcons{
+
+```
+display:flex;
+gap:8px;
+```
+
+}
+
+.signal,
+.wifi,
+.battery{
+
+```
+width:18px;
+height:10px;
+
+border-radius:4px;
+
+background:white;
+```
+
+}
+
+/* =========================
+LOCKSCREEN
+========================= */
+
+#lockscreen{
+
+```
+position:absolute;
+inset:0;
+
+z-index:7000;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+transition:.4s ease;
+```
+
+}
+
+#lockscreen.hidden{
+
+```
+opacity:0;
+pointer-events:none;
+```
+
+}
+
+.lock-content{
+
+```
+position:relative;
+z-index:2;
+
+text-align:center;
+```
+
+}
+
+#lockTime{
+
+```
+font-size:88px;
+font-weight:300;
+
+line-height:1;
+```
+
+}
+
+#lockDate{
+
+```
+font-size:20px;
+
+margin-top:10px;
+
+opacity:.9;
+```
+
+}
+
+.swipe-up{
+
+```
+position:absolute;
+
+bottom:45px;
+
+font-size:15px;
+
+opacity:.65;
+
+animation:swipeHint 2s infinite;
+```
+
+}
+
+@keyframes swipeHint{
+
+```
+0%{
+    transform:translateY(0);
+    opacity:.3;
+}
+
+50%{
+    transform:translateY(-8px);
+    opacity:1;
+}
+
+100%{
+    transform:translateY(0);
+    opacity:.3;
+}
+```
+
+}
+
+/* =========================
+HOME
+========================= */
+
+#homeScreen{
+
+```
+position:absolute;
+inset:0;
+
+display:flex;
+flex-direction:column;
+
+z-index:100;
+```
+
+}
+
+/* =========================
+APPS GRID
+========================= */
+
+.apps{
+
+```
+position:relative;
+
+margin-top:90px;
+
+padding:0 22px;
+
+display:grid;
+
+grid-template-columns:
+    repeat(4,1fr);
+
+gap:22px;
+
+z-index:5;
+```
+
+}
+
+.app{
+
+```
+width:72px;
+height:88px;
+
+border:none;
+background:none;
+
+color:white;
+
+cursor:pointer;
+
+font-size:12px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-end;
+
+position:relative;
+```
+
+}
+
+.app::before{
+
+```
+content:"";
+
+position:absolute;
+
+top:0;
+
+width:62px;
+height:62px;
+
+border-radius:18px;
+
+background:
+    linear-gradient(
+        180deg,
+        #404040,
+        #171717
+    );
+
+box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.15),
+    0 8px 18px rgba(0,0,0,.35);
+```
+
+}
+
+.app:hover::before{
+
+```
+transform:scale(1.05);
+```
+
+}
+
+.app{
+
+```
+transition:.2s;
+```
+
+}
+
+/* =========================
+DOCK
+========================= */
+
+#dock{
+
+```
+position:absolute;
+
+left:12px;
+right:12px;
+bottom:18px;
+
+height:92px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+gap:18px;
+
+border-radius:30px;
+
+background:
+    rgba(255,255,255,.08);
+
+backdrop-filter:blur(30px);
+
+-webkit-backdrop-filter:blur(30px);
+
+border:
+    1px solid rgba(255,255,255,.06);
+
+z-index:10;
+```
+
+}
+
+.dock-app{
+
+```
+width:62px;
+height:62px;
+
+border:none;
+
+border-radius:18px;
+
+background:
+    linear-gradient(
+        180deg,
+        #3a3a3a,
+        #151515
+    );
+
+color:white;
+
+cursor:pointer;
+```
+
+}
+
+/* =========================
+APP SCREEN
+========================= */
+
+.screen{
+
+```
+position:absolute;
+inset:0;
+
+background:#000;
+
+z-index:3000;
+
+display:none;
+
+flex-direction:column;
+
+overflow-y:auto;
+
+padding:
+    70px
+    20px
+    120px;
+
+transform:scale(.96);
+
+opacity:0;
+
+transition:
+    transform .25s ease,
+    opacity .25s ease;
+```
+
+}
+
+.screen.open{
+
+```
+display:flex;
+
+opacity:1;
+
+transform:scale(1);
+```
+
+}
+
+/* =========================
+HEADER
+========================= */
+
+.screen-header{
+
+```
+display:flex;
+
+justify-content:space-between;
+align-items:center;
+
+font-size:30px;
+font-weight:700;
+
+margin-bottom:24px;
+```
+
+}
+
+.closeApp{
+
+```
+width:36px;
+height:36px;
+
+border:none;
+
+border-radius:50%;
+
+background:#1f1f1f;
+
+color:white;
+
+cursor:pointer;
+
+font-size:22px;
+```
+
+}
+
+/* =========================
+WALLET
+========================= */
+
+.wallet-card{
+
+```
+background:
+    linear-gradient(
+        135deg,
+        #262626,
+        #0f0f0f
+    );
+
+border-radius:24px;
+
+padding:24px;
+
+min-height:220px;
+
+box-shadow:
+    0 15px 30px rgba(0,0,0,.5);
+
+margin-bottom:20px;
+```
+
+}
+
+.card-chip{
+
+```
+width:54px;
+height:40px;
+
+border-radius:8px;
+
+background:#b89d3e;
+
+margin-bottom:28px;
+```
+
+}
+
+.card-balance{
+
+```
+font-size:28px;
+font-weight:700;
+
+margin-bottom:24px;
+```
+
+}
+
+.card-number{
+
+```
+letter-spacing:3px;
+
+font-size:20px;
+
+margin-bottom:12px;
+```
+
+}
+
+.card-holder{
+
+```
+opacity:.8;
+```
+
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+button{
+
+```
+font-family:inherit;
+```
+
+}
+
+.btn,
+#wallet button,
+#bank button,
+#crypto button,
+#business button,
+#shop button,
+#food button,
+#appstore button,
+#loans button{
+
+```
+background:#1f1f1f;
+
+border:none;
+
+color:white;
+
+padding:14px;
+
+border-radius:14px;
+
+margin-top:10px;
+
+cursor:pointer;
+
+transition:.2s;
+```
+
+}
+
+.btn:hover,
+button:hover{
+
+```
+background:#2b2b2b;
+```
+
+}
+
+/* =========================
+PRODUCTS
+========================= */
+
+.product,
+.food-item,
+.coin,
+.store-app{
+
+```
+background:#111;
+
+border-radius:18px;
+
+padding:18px;
+
+margin-bottom:12px;
+
+border:
+    1px solid rgba(255,255,255,.06);
+
+display:flex;
+
+justify-content:space-between;
+align-items:center;
+```
+
+}
+
+/* =========================
+SETTINGS
+========================= */
+
+.settingRow{
+
+```
+padding:18px;
+
+background:#111;
+
+border-bottom:
+    1px solid rgba(255,255,255,.05);
+```
+
+}
+
+/* =========================
+SAFARI
+========================= */
+
+#browserAddress{
+
+```
+width:100%;
+
+height:48px;
+
+border:none;
+
+border-radius:14px;
+
+background:#111;
+
+color:white;
+
+padding:0 15px;
+
+margin-bottom:20px;
+```
+
+}
+
+.favorites{
+
+```
+display:grid;
+
+grid-template-columns:
+    repeat(2,1fr);
+
+gap:12px;
+```
+
+}
+
+.site{
+
+```
+height:90px;
+
+border:none;
+
+border-radius:18px;
+
+background:#151515;
+
+color:white;
+```
+
+}
+
+/* =========================
+NOTIFICATIONS
+========================= */
+
+#notificationCenter{
+
+```
+position:absolute;
+
+top:-100%;
+
+left:0;
+
+width:100%;
+
+height:70%;
+
+z-index:6000;
+
+background:
+    rgba(15,15,15,.95);
+
+backdrop-filter:blur(40px);
+
+transition:.35s ease;
+```
+
+}
+
+#notificationCenter.open{
+
+```
+top:0;
+```
+
+}
+
+.notification-header{
+
+```
+padding:80px 24px 24px;
+
+font-size:34px;
+font-weight:700;
+```
+
+}
+
+#notifications{
+
+```
+padding:0 20px;
+```
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:0;
+}
