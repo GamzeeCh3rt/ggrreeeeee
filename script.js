@@ -2285,3 +2285,466 @@ pushNotification(
 "iLife",
 "System Ready"
 );
+/* =====================================
+PART 5
+CORE SYSTEM
+===================================== */
+
+let balance = 45600000000;
+let debt = 0;
+
+/* =====================================
+FORMAT MONEY
+===================================== */
+
+function formatMoney(value){
+
+```
+return "$" +
+Number(value)
+.toLocaleString(
+    "en-US",
+    {
+        maximumFractionDigits:2
+    }
+);
+```
+
+}
+
+/* =====================================
+UPDATE BALANCE
+===================================== */
+
+function updateBalance(){
+
+```
+const balanceValue =
+document.getElementById(
+    "balanceValue"
+);
+
+if(balanceValue){
+
+    balanceValue.textContent =
+    formatMoney(balance);
+
+}
+```
+
+}
+
+/* =====================================
+CLOCK
+===================================== */
+
+function updateClock(){
+
+```
+const now =
+new Date();
+
+const time =
+now.toLocaleTimeString(
+    "en-US",
+    {
+        hour:"2-digit",
+        minute:"2-digit"
+    }
+);
+
+const date =
+now.toLocaleDateString(
+    "en-US",
+    {
+        weekday:"long",
+        month:"long",
+        day:"numeric"
+    }
+);
+
+const lockTime =
+document.getElementById(
+    "lockTime"
+);
+
+const statusTime =
+document.getElementById(
+    "statusTime"
+);
+
+const lockDate =
+document.getElementById(
+    "lockDate"
+);
+
+if(lockTime)
+    lockTime.textContent =
+    time;
+
+if(statusTime)
+    statusTime.textContent =
+    time;
+
+if(lockDate)
+    lockDate.textContent =
+    date;
+```
+
+}
+
+updateClock();
+
+setInterval(
+updateClock,
+1000
+);
+
+/* =====================================
+LOCKSCREEN
+===================================== */
+
+const lockscreen =
+document.getElementById(
+"lockscreen"
+);
+
+const homeScreen =
+document.getElementById(
+"homeScreen"
+);
+
+if(lockscreen){
+
+```
+lockscreen.addEventListener(
+    "click",
+    ()=>{
+
+        lockscreen.style.display =
+        "none";
+
+        if(homeScreen){
+
+            homeScreen.style.display =
+            "flex";
+
+        }
+
+    }
+);
+```
+
+}
+
+/* =====================================
+APPS
+===================================== */
+
+const apps =
+document.querySelectorAll(
+".app"
+);
+
+const screens =
+document.querySelectorAll(
+".screen"
+);
+
+apps.forEach(app=>{
+
+```
+app.addEventListener(
+    "click",
+    ()=>{
+
+        const id =
+        app.dataset.app;
+
+        screens.forEach(s=>{
+
+            s.style.display =
+            "none";
+
+        });
+
+        const target =
+        document.getElementById(
+            id
+        );
+
+        if(target){
+
+            target.style.display =
+            "flex";
+
+        }
+
+    }
+);
+```
+
+});
+
+document
+.querySelectorAll(
+".closeApp"
+)
+.forEach(button=>{
+
+```
+button.addEventListener(
+    "click",
+    ()=>{
+
+        screens.forEach(s=>{
+
+            s.style.display =
+            "none";
+
+        });
+
+    }
+);
+```
+
+});
+
+/* =====================================
+NOTIFICATIONS
+===================================== */
+
+function pushNotification(
+title,
+text
+){
+
+```
+const notifications =
+document.getElementById(
+    "notifications"
+);
+
+if(!notifications)
+    return;
+
+const div =
+document.createElement(
+    "div"
+);
+
+div.className =
+"notification";
+
+div.innerHTML =
+
+    "<strong>" +
+    title +
+    "</strong><br>" +
+
+    text;
+
+notifications.prepend(
+    div
+);
+
+setTimeout(()=>{
+
+    div.remove();
+
+},30000);
+```
+
+}
+
+/* =====================================
+STARTUP
+===================================== */
+
+pushNotification(
+"LifePhone",
+"Welcome back"
+);
+
+/* =====================================
+SAFARI
+===================================== */
+
+const browserInput =
+document.getElementById(
+"browserAddress"
+);
+
+const browserContent =
+document.getElementById(
+"browserContent"
+);
+
+function loadSite(name){
+
+```
+if(!browserContent)
+    return;
+
+switch(
+    name.toLowerCase()
+){
+
+    case "marketplace":
+
+        browserContent.innerHTML =
+
+        "<h2>Marketplace</h2>" +
+
+        "<p>Buy products</p>";
+
+    break;
+
+    case "luxury cars":
+
+        browserContent.innerHTML =
+
+        "<h2>Luxury Cars</h2>" +
+
+        "<p>Supercars available</p>";
+
+    break;
+
+    case "crypto news":
+
+        browserContent.innerHTML =
+
+        "<h2>Crypto News</h2>" +
+
+        "<p>BTC is moving today.</p>";
+
+    break;
+
+    case "food delivery":
+
+        browserContent.innerHTML =
+
+        "<h2>Food Delivery</h2>" +
+
+        "<p>Order food.</p>";
+
+    break;
+
+    default:
+
+        browserContent.innerHTML =
+
+        "<h2>" +
+        name +
+        "</h2>" +
+
+        "<p>Website not found.</p>";
+
+}
+```
+
+}
+
+document
+.querySelectorAll(
+".site"
+)
+.forEach(site=>{
+
+```
+site.addEventListener(
+    "click",
+    ()=>{
+
+        loadSite(
+            site.textContent
+        );
+
+    }
+);
+```
+
+});
+
+if(browserInput){
+
+```
+browserInput.addEventListener(
+    "keydown",
+    e=>{
+
+        if(
+            e.key === "Enter"
+        ){
+
+            loadSite(
+                browserInput.value
+            );
+
+        }
+
+    }
+);
+```
+
+}
+
+/* =====================================
+WALLET
+===================================== */
+
+const walletTransfer =
+document.getElementById(
+"walletTransfer"
+);
+
+if(walletTransfer){
+
+```
+walletTransfer.onclick =
+()=>{
+
+    const card =
+    prompt(
+        "Card Number"
+    );
+
+    if(!card) return;
+
+    const amount =
+    Number(
+        prompt(
+            "Amount"
+        )
+    );
+
+    if(
+        !amount ||
+        amount <= 0
+    ) return;
+
+    if(
+        amount > balance
+    ){
+
+        alert(
+            "Not enough money"
+        );
+
+        return;
+
+    }
+
+    balance -= amount;
+
+    updateBalance();
+
+    pushNotification(
+        "Transfer",
+        formatMoney(amount)
+    );
+
+};
+```
+
+}
